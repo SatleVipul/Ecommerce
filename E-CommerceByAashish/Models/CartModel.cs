@@ -14,4 +14,13 @@ namespace E_CommerceByAashish.Models
 
         public DateTime? ModifiedDate { get; set; }
     }
+    public class dummyCart
+    {
+        public int CartId { get; set; }
+
+        public int ProductId { get; set; }
+
+        public int Quantity { get; set; }
+        public string ProductName { get; set; }
+    }
 }

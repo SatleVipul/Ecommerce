@@ -62,7 +62,7 @@ namespace E_CommerceByAashish.Controllers
         }
         public IActionResult  Delete(int cart)
         {
-            var a = dbcontext.tblCart.Find(cart);
+            var a = dbcontext.tblCart.Where(x => x.CartId == cart).FirstOrDefault();
             if (a == null)
             {
                 return  NotFound();
@@ -71,18 +71,28 @@ namespace E_CommerceByAashish.Controllers
             {
                 dbcontext.Remove(a);
                 dbcontext.SaveChanges();
-                return View(a);
+                return RedirectToAction("index");
             }
         }
 
-        public List<CartModel> GetAllCartProducts()
+        public List<dummyCart> GetAllCartProducts()
         {
-            List<CartModel> cm = new List<CartModel>();
+            List<dummyCart> cm = new List<dummyCart>();
             cm = (from c in dbcontext.tblCart
-                  join p in dbcontext.tblProduct on c.ProductId equals)
-            return dbcontext.tblCart.ToList();            
+                  join p in dbcontext.tblProduct on c.ProductId equals p.ProductId
+                  select new dummyCart
+                  {
+                      CartId = c.CartId,
+                      ProductId = c.ProductId,
+                      Quantity = c.Quantity,
+                      ProductName = p.ProductName
+
+                  }).ToList();
+
+            return cm;           
         }
 
+        
 
     }
 }
