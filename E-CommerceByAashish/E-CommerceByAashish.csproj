@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>E_CommerceByAashish</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\Adidas.jfif" />
+    <None Include="wwwroot\Images\Bata.jfif" />
+    <None Include="wwwroot\Images\Boat.png" />
+    <None Include="wwwroot\Images\Casio.jfif" />
+    <None Include="wwwroot\Images\Dell.jfif" />
+    <None Include="wwwroot\Images\Fossil.jfif" />
+    <None Include="wwwroot\Images\HP.jfif" />
+    <None Include="wwwroot\Images\Iball.jfif" />
+    <None Include="wwwroot\Images\Jbl.jfif" />
+    <None Include="wwwroot\Images\Lenevo.jfif" />
+    <None Include="wwwroot\Images\Nike.jfif" />
+    <None Include="wwwroot\Images\Nokia.jfif" />
+    <None Include="wwwroot\Images\oopo.jfif" />
+    <None Include="wwwroot\Images\Puma.jfif" />
+    <None Include="wwwroot\Images\Samsung.jfif" />
+    <None Include="wwwroot\Images\Sennhi.png" />
+    <None Include="wwwroot\Images\Sony.jfif" />
+    <None Include="wwwroot\Images\Timex.jfif" />
+    <None Include="wwwroot\Images\Titan.jfif" />
+    <None Include="wwwroot\Images\Vivo.jfif" />
+  </ItemGroup>
+
+</Project>
