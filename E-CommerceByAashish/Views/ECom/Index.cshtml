@@ -22,7 +22,7 @@
             @foreach (var products in ViewBag.products)
             
             {
-
+                <input type="hidden" id="hdnd"/>
                 <div id="@products.ProductName@products.CategoryId" style="display:none" class="@products.CategoryId">
                     <div class="card my-2">
                         <div class="card-header ">

@@ -45,18 +45,18 @@ namespace E_CommerceByAashish.Controllers
         [HttpPost] 
         public IActionResult add(CartModel model)
         {
-            if(model != null)
+            bool productIsPresent =  dbcontext.tblCart.Any(x => x.ProductId == model.ProductId);
+            if (!productIsPresent)
             {
-                if(model.CartId == 0)
+                if (model != null)
                 {
-                    dbcontext.tblCart.Add(model);
+                    if (model.CartId == 0)
+                    {
+                        model.Quantity = 1;
+                        dbcontext.tblCart.Add(model);
+                    }
                 }
-                else
-                {
-                    dbcontext.Entry(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                }
-            }
-            
+            }            
             dbcontext.SaveChanges();
             return RedirectToAction("index");
         }
@@ -77,6 +77,9 @@ namespace E_CommerceByAashish.Controllers
 
         public List<CartModel> GetAllCartProducts()
         {
+            List<CartModel> cm = new List<CartModel>();
+            cm = (from c in dbcontext.tblCart
+                  join p in dbcontext.tblProduct on c.ProductId equals)
             return dbcontext.tblCart.ToList();            
         }
 
