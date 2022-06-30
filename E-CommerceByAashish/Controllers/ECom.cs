@@ -71,7 +71,7 @@ namespace E_CommerceByAashish.Controllers
             {
                 dbcontext.Remove(a);
                 dbcontext.SaveChanges();
-                return RedirectToAction("index");
+                return View();
             }
         }
 
@@ -91,8 +91,19 @@ namespace E_CommerceByAashish.Controllers
 
             return cm;           
         }
-
-        
+        [HttpPost]
+        public bool SaveQuantityofProduct(int cartid,int quntity)
+        {
+            var a = dbcontext.tblCart.FirstOrDefault(x => x.CartId == cartid);
+            if (a != null)
+            {
+                a.Quantity = quntity;
+                dbcontext.Entry(a).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                dbcontext.SaveChanges();
+                return true;
+            }
+            return false;
+        }
 
     }
 }
