@@ -1,6 +1,6 @@
 ﻿
 function AddToCart(ProductId) {
-  
+
     var model = {
         "ProductId": ProductId,
 
@@ -8,27 +8,30 @@ function AddToCart(ProductId) {
     };
 
     $.ajax({
-        
+
         type: 'POST',
         dataType: 'json',
         url: '/Ecom/add',
         data: model,
-      
-       
+
+
         success: function (data) {
-           alert( data,"submited");
-       },
+            alert(data, "submited");
+        },
         error: function (XMLHttpRequest, textStatus, errorThrown) { }
     });
 
 
 }
 function showproduct(categoryid) {
-
-    $('.' + categoryid).toggle();
-
+    
+    var i = 0;
+    for (i = 0; i < 5;i++)
+    {
+        $('.' + i).hide();
+    }
+    $('.' + categoryid).show();
 }
-
 function showCart() {
 
 
@@ -59,11 +62,11 @@ function decreaseQuantity(id) {
         type: 'POST',
         dataType: 'json',
         url: '/Ecom/SaveQuantityofProduct',
-        data: { "cartid": id,"quntity":b},
+        data: { "cartid": id, "quntity": b },
 
 
         success: function (data) {
-            
+            alert(data, "submited");
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) { }
     });
@@ -83,7 +86,7 @@ function IncreaseQuantity(id) {
 
 
         success: function (data) {
-            
+
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) { }
     });
